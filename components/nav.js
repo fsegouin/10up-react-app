@@ -1,55 +1,53 @@
 import React from 'react'
 import Link from 'next/link'
 
-const links = [
-  { href: 'https://zeit.co/now', label: 'ZEIT' },
-  { href: 'https://github.com/zeit/next.js', label: 'GitHub' },
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
-
 const Nav = () => (
   <nav>
+    <div className="title">
+      <Link href="/">
+        <a>10up Blog</a>
+      </Link>
+    </div>
     <ul>
       <li>
-        <Link href="/">
-          <a>Home</a>
+        <Link href="/about">
+          <a>About</a>
         </Link>
       </li>
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <a href={href}>{label}</a>
-        </li>
-      ))}
+      <li>
+        <Link href="/profile">
+          <a>Profile</a>
+        </Link>
+      </li>
     </ul>
 
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
+    <style jsx>{
+      /* CSS */ `
+        nav {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 16px 24px;
+          background-color: rgba(0, 0, 0, 0.22);
+        }
+        ul {
+          display: flex;
+          justify-content: flex-end;
+        }
+        li {
+          display: flex;
+          padding: 8px;
+        }
+        a {
+          color: inherit;
+          text-decoration: none;
+          font-size: 13px;
+        }
+        .title a {
+          font-size: 1.33em;
+        }
+      `
+    }</style>
   </nav>
 )
 
